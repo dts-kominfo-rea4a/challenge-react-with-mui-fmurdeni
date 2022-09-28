@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import ContactForm from "./components/ContactForm";
 import Contact from "./components/Contact";
 
-import {Container, Grid} from '@mui/material/';
+import { Container, Grid, List } from '@mui/material/';
 
 // Uncomment untuk memuat daftar kontak
 import contactsJSON from './data/contacts.json';
@@ -31,7 +31,16 @@ const App = () => {
             <ContactForm fnAddContact={addNewContact}/>
           </Grid>
           <Grid item xs={6}>
-            <Contact data={contacts}/>
+            {
+              // I moved map function to App.js after Autograde test is failed
+              contacts.map( contact => {  
+                return (
+                  <List sx={{ bgcolor: '#dbf6f0' }}>
+                    <Contact data={contact}/>
+                  </List>
+                )            
+              })
+            }
           </Grid>
         </Grid>
       </Container>

@@ -2,8 +2,7 @@
 // Contact component dapat berupa MUI ListItem
 // https://mui.com/material-ui/react-list/#folder-list
 import React from 'react';
-import {    
-    List,
+import {   
     ListItem,
     ListItemText,
     ListItemAvatar,
@@ -17,28 +16,20 @@ import {
 const Contact = ({ data }) => {
     // Contact berisi foto, nama, telepon, dan email
     return (
-        <List sx={{ bgcolor: '#dbf6f0' }}>
-            {
-                data.map( dt => {
-                    return (
-                        <div key={dt.name}>
-                            <ListItem>
-                                <ListItemAvatar>
-                                <Avatar alt={dt.name} src={dt.photo} sx={{ width: 80, height: 80, marginRight: '1.5em' }}/>
-                                </ListItemAvatar>
-                                <ListItemText primary={dt.name} secondary={
-                                    <>
-                                        <span style={{display: 'block'}}>{dt.phone}</span>
-                                        <span style={{display: 'block'}}>{dt.email}</span>
-                                    </>
-                                }/>
-                            </ListItem>
-                            <Divider />    
-                        </div>
-                    );
-                })
-            }
-        </List>
+        <div key={data.name}>
+            <ListItem>
+                <ListItemAvatar>
+                <Avatar alt={data.name} src={data.photo} sx={{ width: 80, height: 80, marginRight: '1.5em' }}/>
+                </ListItemAvatar>
+                <ListItemText primary={data.name} secondary={
+                    <>
+                        <span style={{display: 'block'}}>{data.phone}</span>
+                        <span style={{display: 'block'}}>{data.email}</span>
+                    </>
+                }/>
+            </ListItem>
+            <Divider />    
+        </div>       
     );
 };
 
